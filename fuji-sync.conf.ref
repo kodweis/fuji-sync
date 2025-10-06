@@ -1,0 +1,21 @@
+# project: fuji-sync
+# code generator: ChatGPT
+# author: kodweis@gmail.com
+# Fuji Auto-Sync configuration (reference)
+# Always overwritten on install.
+
+FUJI_MOUNT="$HOME/fuji"
+NAS_TARGET="jo3@192.168.0.100:/volume1/fujifilm/DCIM"
+# Optional: pin camera port reported by `gphoto2 --auto-detect` (e.g. usb:001,008)
+CAMERA_PORT=""
+# Where to look for sources under the mount (glob)
+SOURCE_GLOB="store_*/DCIM"
+# Backoff behavior
+BACKOFF_BASE=15
+BACKOFF_MAX=120
+RSYNC_RETRIES=3
+# Runtime flags
+DEBUG=0
+NOTIFY=0
+# Camera polling interval (when camera is not detected)
+CAM_CHECK_INTERVAL=10

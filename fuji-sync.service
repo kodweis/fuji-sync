@@ -1,0 +1,24 @@
+# project: fuji-sync
+# code generator: ChatGPT
+# author: kodweis@gmail.com
+[Unit]
+Description=Fuji Auto-Sync
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=%h/.local/etc/fuji-auto-sync/fuji-sync.conf
+ExecStart=%h/.local/bin/fuji_watcher.sh
+Restart=always
+RestartSec=15
+KillMode=control-group
+TimeoutStopSec=10
+
+# Note: NoNewPrivileges removed so ping works in user service
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+ReadWritePaths=%h/.local %h/fuji
+
+[Install]
+WantedBy=default.target
